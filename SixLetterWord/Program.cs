@@ -1,9 +1,11 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using System.Reflection;
 using System.Runtime.CompilerServices;
 
 Console.WriteLine("Hello, World!");
-
-List<string> lines = ReadTextFile(@"C:\Users\Joachim\Documents\SixLetterWord\SixLetterWord\input.txt");
+string currentDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+string path = Path.Combine(currentDirectory, "input.txt");
+List<string> lines = ReadTextFile(path);
 
 Dictionary<string, List<string>> sixCharacterWords = GetSixCharacterWords(lines);
 List<string> partialWords = GetNotSixCharacterWords(lines);
