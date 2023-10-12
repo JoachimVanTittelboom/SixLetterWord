@@ -3,9 +3,8 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 
 Console.WriteLine("Hello, World!");
-string currentDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-string path = Path.Combine(currentDirectory, "input.txt");
-List<string> lines = ReadTextFile(path);
+
+List<string> lines = ReadTextFile("input.txt");
 
 Dictionary<string, List<string>> sixCharacterWords = GetSixCharacterWords(lines);
 List<string> partialWords = GetNotSixCharacterWords(lines);
